@@ -19,18 +19,18 @@ const VideoPlay = () => {
     const fetchSelectedVideo = async () => {
       try {
         const videoResponse = await axios.get(
-          `http://localhost:3000/videos/${id}`
+          `https://tokopedia-play-clone-backend-production-2948.up.railway.app/videos/${id}`
         );
         if (videoResponse.data.video) {
           setSelectedVideo(videoResponse.data.video);
           const productsResponse = await axios.get(
-            `http://localhost:3000/videos/products/${id}`
+            `https://tokopedia-play-clone-backend-production-2948.up.railway.app/videos/products/${id}`
           );
           setProducts(productsResponse.data.products);
 
           // Fetch comments based on video ID
           const commentsResponse = await axios.get(
-            `http://localhost:3000/videos/comments/${id}`
+            `https://tokopedia-play-clone-backend-production-2948.up.railway.app/videos/comments/${id}`
           );
           setComments(commentsResponse.data.comments);
         } else {
@@ -50,7 +50,7 @@ const VideoPlay = () => {
     try {
       if (commentUsername && commentText) {
         const response = await axios.post(
-          `http://localhost:3000/videos/comment/${id}`,
+          `https://tokopedia-play-clone-backend-production-2948.up.railway.app/videos/comment/${id}`,
           {
             username: commentUsername,
             comment: commentText,
@@ -60,7 +60,7 @@ const VideoPlay = () => {
 
         // Refresh the comments after posting
         const commentsResponse = await axios.get(
-          `http://localhost:3000/videos/comments/${id}`
+          `https://tokopedia-play-clone-backend-production-2948.up.railway.app/videos/comments/${id}`
         );
         setComments(commentsResponse.data.comments);
 

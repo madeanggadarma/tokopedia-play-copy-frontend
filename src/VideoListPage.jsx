@@ -20,7 +20,9 @@ function VideoListPage() {
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/videos/"); // Replace with your API endpoint
+        const response = await axios.get(
+          "https://tokopedia-play-clone-backend-production-2948.up.railway.app/videos/"
+        ); // Replace with your API endpoint
         setVideoData(response.data);
         console.log(response.data);
       } catch (error) {
